@@ -9,10 +9,12 @@
 
 ## 安装
 
+下面的命令显式指定了 `--agent`，适合在终端、脚本或 AI 后台任务中运行。`--agent "*"` 会安装到此工具支持的全部 Agent；如果只使用一个 Agent，建议改成其名称，减少不必要的安装操作。
+
 ### 安装 life-archive
 
 ```bash
-npx -y skills add zhj022326-commits/on-feed-skills --skill life-archive -g
+npx -y skills add zhj022326-commits/on-feed-skills --skill life-archive --agent "*" -g
 ```
 
 这条命令会把 `life-archive` 安装到 Agent 的用户级技能目录。安装后开启新的会话。
@@ -20,28 +22,20 @@ npx -y skills add zhj022326-commits/on-feed-skills --skill life-archive -g
 ### 安装 video-interactive-learning-lite
 
 ```bash
-npx -y skills add zhj022326-commits/on-feed-skills --skill video-interactive-learning-lite -g
+npx -y skills add zhj022326-commits/on-feed-skills --skill video-interactive-learning-lite --agent "*" -g
 ```
 
 轻量版只有 `SKILL.md` 和互动教学规则，无提取程序或运行依赖。宿主必须原生支持从视频链接取得完整文字稿；若宿主缺少该能力，请使用上面链接中的完整版。豆包若要求上传文件，可将 [`skills/video-interactive-learning-lite/`](skills/video-interactive-learning-lite/) 目录单独打包为 ZIP 导入。
 
-### 非交互安装（后台或无终端环境）
+### 只安装到指定 Agent
 
-上面的命令适用于有人操作的终端。在脚本、后台任务或无终端环境里，安装工具可能停在“选择 Agent”界面。`npx -y` 只跳过 npx 自身的确认；即使再加安装工具的 `-y`，也不要依赖它替你选择 Agent。请显式指定 `--agent`：
-
-安装到工具支持的全部 Agent：
-
-```bash
-npx -y skills add zhj022326-commits/on-feed-skills --skill video-interactive-learning-lite --agent '*' -g
-```
-
-只安装到指定 Agent，例如 Cursor：
+例如只把轻量版安装到 Cursor：
 
 ```bash
 npx -y skills add zhj022326-commits/on-feed-skills --skill video-interactive-learning-lite --agent cursor -g
 ```
 
-安装其他 Skill 时，把 `--skill` 后的名称改为对应目录名。`--agent '*'` 指安装工具支持的 Agent，不代表豆包等所有平台都能通过这条命令安装。
+在后台或无终端环境里，不要省略 `--agent`：省略后可能停在“选择 Agent”界面。`npx -y` 只跳过 npx 自身的确认；即使再加安装工具的 `-y`，也不要依赖它替你选择 Agent。安装其他 Skill 时，把 `--skill` 后的名称改为对应目录名。`--agent "*"` 不代表豆包等所有平台都能通过这条命令安装。
 
 如果 npx 冷启动慢，也可跳过 npx，手动取得仓库：
 
