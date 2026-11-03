@@ -1,10 +1,11 @@
 # on-feed-skills
 
-本仓库收录四个可独立安装的 Agent Skills：
+本仓库收录五个可独立安装的 Agent Skills：
 
 - [`knowledge-assembler`](skills/knowledge-assembler/)：知识组装；围绕确认的研究问题，整合多领域知识并写成完整文章。
 - [`life-archive`](skills/life-archive/)：个人档案与访谈工作流。
 - [`self-narrative-restoration`](skills/self-narrative-restoration/)：第一人称自我叙事还原；分析有依据的自我美化、利益包装和叙事越权。
+- [`thinking-mistake-notebook`](skills/thinking-mistake-notebook/)：《思维错题本》；通过情境模拟和互动复盘观察错误认知的形成与强化。
 - [`video-interactive-learning-lite`](skills/video-interactive-learning-lite/)：《信息流学习机·轻量版》，面向豆包等原生支持从视频链接取得完整文字稿的 Agent，负责质量判断、知识整理和互动教学。
 
 本仓库不包含带视频提取程序的《信息流学习机》完整版。完整版位于 [no-feed-skills](https://github.com/zhj022326-commits/no-feed-skills/tree/main/skills/video-interactive-learning)。
@@ -31,6 +32,12 @@ npx -y skills add zhj022326-commits/on-feed-skills --skill knowledge-assembler -
 
 ```bash
 npx -y skills add zhj022326-commits/on-feed-skills --skill self-narrative-restoration --agent "*" -g
+```
+
+### 安装 thinking-mistake-notebook
+
+```bash
+npx -y skills add zhj022326-commits/on-feed-skills --skill thinking-mistake-notebook --agent "*" -g
 ```
 
 ### 安装 video-interactive-learning-lite
