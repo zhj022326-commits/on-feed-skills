@@ -1,7 +1,8 @@
 # on-feed-skills
 
-本仓库收录六个可独立安装的 Agent Skills：
+本仓库收录七个可独立安装的 Agent Skills：
 
+- [`ai-logic-review`](skills/ai-logic-review/)：《AI 逻辑审查》；依据六类固定判例审查 AI 文本中的可确认逻辑偏离，只列原文证据与逻辑关系。
 - [`knowledge-assembler`](skills/knowledge-assembler/)：知识组装；围绕确认的研究问题，整合多领域知识并写成完整文章。
 - [`life-archive`](skills/life-archive/)：个人档案与访谈工作流。
 - [`self-narrative-restoration`](skills/self-narrative-restoration/)：第一人称自我叙事还原；分析有依据的自我美化、利益包装和叙事越权。
@@ -14,6 +15,12 @@
 ## 安装
 
 下面的命令显式指定了 `--agent`，适合在终端、脚本或 AI 后台任务中运行。`--agent "*"` 会安装到此工具支持的全部 Agent；如果只使用一个 Agent，建议改成其名称，减少不必要的安装操作。
+
+### 安装 ai-logic-review
+
+```bash
+npx -y skills add zhj022326-commits/on-feed-skills --skill ai-logic-review --agent "*" -g
+```
 
 ### 安装 life-archive
 
@@ -90,6 +97,10 @@ git clone --depth 1 https://github.com/zhj022326-commits/on-feed-skills.git
 - 调用时附加“访谈”：启动人生访谈。
 
 首次调用时可选择输入已有档案的完整路径，或创建新档案。新档案会在所选位置下使用带随机后缀的文件夹名；安装版 `SKILL.md` 保存当前路径，公开仓库不保存个人路径。档案绑定后正常使用不更换路径；用户手动移动档案时，可明确要求重新定位，技能核对档案编号后更新路径。卸载重装并重新初始化可选择旧档案或新档案；单开新对话不会重置位置。云端运行环境必须能访问所选存储位置；它不能自动读写用户电脑上不可访问的本地盘符。
+
+## ai-logic-review 使用
+
+调用 `$ai-logic-review` 并提供待审 AI 回答；需要确认信念干预、审查标准不对称或形式敏感时，同时提供可比回答。Skill 只输出六类规则中可由输入直接证实的命中项，不做事实裁决、立场评价、反驳、改写或建议。
 
 ## video-interactive-learning-lite 使用
 
